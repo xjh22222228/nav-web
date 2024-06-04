@@ -1,0 +1,130 @@
+$sideWidth: 200px;
+
+.layout {
+  min-height: 100vh;
+
+  .inner-layout {
+    margin-left: $sideWidth;
+    .content {
+      padding: 10px 70px 0 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .search-header {
+      z-index: 9;
+      position: relative;
+      text-align: center;
+      ::ng-deep .search-engine {
+        z-index: 10;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -20px;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .box {
+    flex: 1;
+    transition: 0.1s linear;
+  }
+
+  .collapse-wrapper {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 15px;
+
+    .collapse {
+      display: block;
+      transform: rotate(-270deg);
+
+      &.active {
+        transform: rotate(-360deg);
+      }
+    }
+  }
+
+  .ant-menu-item {
+    padding-right: 40px;
+  }
+
+  ::ng-deep .web-list {
+    max-width: 100% !important;
+  }
+}
+
+.logo {
+  z-index: 11;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $sideWidth;
+  padding: 10px;
+  padding-left: 15px;
+  background-color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  img {
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+  }
+
+  .site-title {
+    font-weight: 500;
+    font-size: 18px;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+}
+
+.sider {
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  overflow: auto;
+  width: 200px;
+  padding-top: 70px;
+  .sideicon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .fixicon {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    margin-right: 0;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: hsla(0, 0%, 100%, 0.2);
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: hsla(0, 0%, 100%, 0.15);
+    border-radius: 3px;
+  }
+}
+
+::ng-deep {
+  #app-footer {
+    margin-top: 45px;
+  }
+  #app-footer,
+  #app-footer .copyright {
+    margin-bottom: 10px;
+    color: #666;
+  }
+}

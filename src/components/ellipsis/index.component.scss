@@ -1,0 +1,11 @@
+.box {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.icon {
+  position: absolute;
+  top: 12px;
+  left: 25px;
+}

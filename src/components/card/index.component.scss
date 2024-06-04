@@ -1,0 +1,130 @@
+.container {
+  position: relative;
+  height: 100%;
+
+  .rate {
+    margin-bottom: 10px;
+    margin-top: -10px;
+  }
+
+  .desc {
+    color: rgba(0, 0, 0, 0.45);
+    word-break: break-all;
+    white-space: pre-wrap;
+  }
+
+  .title {
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  &.example2 {
+    background-color: #fff;
+    padding: 8px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid transparent;
+    transition: all 0.15s linear;
+    display: flex;
+    color: #000;
+    &:hover {
+      border: 1px solid #78b7fa;
+      .title {
+        color: #007bff;
+      }
+    }
+    .right-box {
+      flex: 1;
+      width: 0;
+      margin-left: 12px;
+    }
+    .title {
+      display: flex;
+      align-items: center;
+    }
+    .desc {
+      margin: 0;
+      font-size: 12px;
+    }
+  }
+
+  &.column2 {
+    background-color: #fff;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    transition: all 0.15s linear;
+    color: #000;
+    display: block;
+    &:hover {
+      background-color: #f2f3f5;
+    }
+    .title-bar {
+      display: flex;
+      align-items: center;
+    }
+    .right-box {
+      margin-top: 6px;
+    }
+    .title {
+      font-weight: bold;
+      margin-left: 10px;
+      font-size: 16px;
+    }
+    .desc {
+      margin: 0;
+      font-size: 12px;
+    }
+    .bottom-bar {
+      display: flex;
+      margin-top: 4px;
+    }
+    .tagbox {
+      display: flex;
+      flex: 1;
+      justify-content: flex-start;
+      a {
+        color: #fff;
+      }
+    }
+    .tag-item {
+      margin-right: 6px;
+      padding: 0 6px;
+      border-radius: 2px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      transition: all 0.1s linear;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    .rate2 {
+      color: #8a919f;
+      margin-right: 10px;
+    }
+  }
+}
+
+.add-wrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .add-icon {
+    font-size: 50px;
+    color: #ccc;
+  }
+}
+
+::ng-deep {
+  .gutter-row .ant-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

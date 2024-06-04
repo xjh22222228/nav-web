@@ -1,0 +1,26 @@
+{
+  "繁体": {
+    "createdAt": "2021-11-21T02:02:47.658Z",
+    "color": "#f50000",
+    "desc": "繁体",
+    "isInner": false
+  },
+  "中文": {
+    "color": "#2db7f5",
+    "createdAt": "2018-01-25T07:56:31.372Z",
+    "desc": "系统内置不可删除",
+    "isInner": true
+  },
+  "英文": {
+    "color": "#f50",
+    "createdAt": "2018-01-25T07:56:31.372Z",
+    "desc": "系统内置不可删除",
+    "isInner": true
+  },
+  "Github": {
+    "color": "#108ee9",
+    "createdAt": "2018-01-25T07:56:31.372Z",
+    "desc": "系统内置不可删除",
+    "isInner": true
+  }
+}
