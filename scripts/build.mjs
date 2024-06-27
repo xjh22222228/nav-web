@@ -92,7 +92,6 @@ async function build() {
 
   fs.writeFileSync(writePath, t, { encoding: 'utf-8' })
   fs.unlinkSync('./nav.config.js')
-  console.log('Config build done!')
 }
 
 buildSeo()
@@ -128,7 +127,35 @@ let errorUrlCount = 0
           settings.spiderTitle === 'EMPTY' ||
           settings.spiderTitle === 'ALWAYS'
         ) {
-          items.push(item)
+          const res = await getWebInfo(item.url, { timeout: 3000 })
+          if (!res.status) {
+            console.log(`疑似异常 ${item.url}`)
+          }
+          if (settings.checkUrl) {
+            if (!res.status) {
+              errorUrlCount += 1
+              item.ok = false
+            }
+          }
+          if (res.status) {
+            if (settings.spiderIcon === 'ALWAYS') {
+              item.icon = res.iconUrl
+            } else if (settings.spiderIcon === 'EMPTY' && !item.icon) {
+              item.icon = res.iconUrl
+            }
+
+            if (settings.spiderTitle === 'ALWAYS') {
+              item.name = res.title
+            } else if (settings.spiderTitle === 'EMPTY' && !item.name) {
+              item.name = res.title
+            }
+
+            if (settings.spiderDescription === 'ALWAYS') {
+              item.desc = res.description
+            } else if (settings.spiderDescription === 'EMPTY' && !item.desc) {
+              item.desc = res.description
+            }
+          }
         }
       } else {
         r(item.nav)
@@ -178,4 +205,5 @@ process.on('exit', () => {
   settings.errorUrlCount = errorUrlCount
   fs.writeFileSync(setPath, JSON.stringify(settings), { encoding: 'utf-8' })
   fs.writeFileSync(dbPath, JSON.stringify(db), { encoding: 'utf-8' })
+  console.log('All success!')
 })
