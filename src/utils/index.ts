@@ -278,13 +278,19 @@ export function adapterWebsiteList(websiteList: any[]) {
     })
     event.emit('WEB_FINISH')
     window.__FINISHED__ = true
-    setTimeout(() => {
-      event.emit('NOTIFICATION', {
-        type: 'success',
-        title: '构建完成',
-        content: date,
-      })
-    }, 1000)
+    if (isLogin) {
+      setTimeout(() => {
+        event.emit('NOTIFICATION', {
+          type: 'success',
+          title: '构建完成',
+          content: date,
+          config: {
+            nzDuration: 0,
+          },
+        })
+      }, 1000)
+    }
+
     return
   }
 
